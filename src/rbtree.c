@@ -1,10 +1,25 @@
 #include "rbtree.h"
-
 #include <stdlib.h>
+
+typedef struct node
+{
+  int key;
+  char color[6];
+  struct node *left;
+  struct node *right;  
+} treeNode;
+
+typedef struct tree 
+{
+  treeNode *root;
+} rbtree;
 
 rbtree *new_rbtree(void) {
   rbtree *p = (rbtree *)calloc(1, sizeof(rbtree));
-  // TODO: initialize struct if needed
+  p->root->key = NULL;
+  strcpy(p->root->color, 'black');
+  p->root->left = NULL;
+  p->root->right = NULL;
   return p;
 }
 
